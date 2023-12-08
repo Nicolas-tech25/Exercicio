@@ -1,14 +1,27 @@
 import Cabecalho from "./components/Cabecalho";
-import Conteudo from "./components/Conteudo";
+import Rodape from "./components/Rodape";
+import Container from "./components/container";
+import Contato from "./pages/contato";
+import Home from "./pages/home";
+import Produtos from "./pages/produtos";
 
-import "./App.css";
+/* Importação de recursos/componentes */
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Cabecalho />
-
-      <Conteudo />
+      <BrowserRouter>
+        <Cabecalho />
+        <Container>
+          <Routes>
+            <Route Component={Home} exact path="/" />
+            <Route Component={Produtos} path="/produtos" />
+            <Route Component={Contato} path="/contato" />
+          </Routes>
+        </Container>
+        <Rodape />
+      </BrowserRouter>
     </>
   );
 }
